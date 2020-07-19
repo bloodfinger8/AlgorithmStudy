@@ -1,4 +1,4 @@
-package 큐.jisoo;
+package 스택과큐.큐.캐시.jisoo;
 
 import java.util.*;
 
