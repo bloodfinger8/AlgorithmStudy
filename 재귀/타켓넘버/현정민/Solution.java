@@ -40,4 +40,15 @@ public class Solution {
         }
         return recursion(numbers, ++i, tempQue);
     }
+    
+    /*
+    테스트 1 〉	통과 (179.31ms, 107MB)
+    테스트 2 〉	통과 (179.36ms, 108MB)
+    테스트 3 〉	통과 (2.59ms, 52.4MB)
+    테스트 4 〉	통과 (4.44ms, 50.7MB)
+    테스트 5 〉	통과 (15.34ms, 54.7MB)
+    테스트 6 〉	통과 (2.63ms, 52.4MB)
+    테스트 7 〉	통과 (2.70ms, 53MB)
+    테스트 8 〉	통과 (5.37ms, 51MB)
+    */
 }
