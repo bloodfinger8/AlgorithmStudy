@@ -26,6 +26,7 @@ public class Solution {
         // solution2(1, new int[]{1}, 2, new int[]{1,1});
     }
 
+    // O(N)
     public static void solution(int n, int[] nArray, int m, int[] mArray) {
         Map<Integer, Integer> check = new HashMap<>();
         // if n<m, n==m, n>m case 고려
