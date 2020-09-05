@@ -1,4 +1,4 @@
-package 그리디.장지수;
+package 그리디.ATM.장지수;
 
 import java.util.Arrays;
 import java.util.Scanner;
