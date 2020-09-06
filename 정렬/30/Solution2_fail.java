@@ -1,0 +1,53 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String numbers = br.readLine();
+        List<Integer> numberList = new LinkedList<>();
+        int sum = 0;
+        for(int i = 0; i < numbers.length(); i++){
+            numberList.add(numbers.charAt(i)- '0');
+        }
+        Collections.sort(numberList, Collections.reverseOrder());
+        StringBuffer sumStr = new StringBuffer();
+        for(int number : numberList){
+            sumStr.append(number);
+        }
+
+        if(Integer.parseInt(sumStr.toString())%30 != 0) {
+            System.out.println(-1);
+            return;
+        }
+        for(int number : numberList){
+            System.out.print(number);
+        }
+
+        /*boolean tenflag = false;
+        boolean threeflag = false;
+        for(int i = 0; i < numbers.length(); i++){
+            //numberList.add(Integer.parseInt(number[i]));
+            sum = sum + numbers.charAt(i)- '0';
+            numberList.add(numbers.charAt(i)- '0');
+            if(numbers.charAt(i) == '0')
+                tenflag = true;
+        }
+        if(sum%3 == 0)
+            threeflag = true;
+        if(! (tenflag &&threeflag)) {
+            System.out.println(-1);
+            return;
+        }
+        Collections.sort(numberList, Collections.reverseOrder());
+
+        for(int number : numberList){
+            System.out.print(number);
+        }*/
+
+
+    }
+}
