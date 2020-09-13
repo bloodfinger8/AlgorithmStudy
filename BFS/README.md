@@ -1,1 +1,0 @@
-상근이의여행 https://www.acmicpc.net/problem/9372
