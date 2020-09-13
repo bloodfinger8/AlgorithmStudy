@@ -22,14 +22,14 @@ public class Solution {
                 int idx = 0;
                 for (int i = 0; i < N; ++i) {
                     if (((1 << i) & j) > 0) {
-                        System.out.print(i+ " ");
+                        //System.out.print(i+ " ");
                         member[i] = true;
                     }
                 }
                 int gap = addStat(member, statArr, sumMap);
                 if(answer > gap)
                     answer = gap;
-                System.out.println(gap);
+                //System.out.println(gap);
             }
         }
 
@@ -51,16 +51,12 @@ public class Solution {
         }
 
         int[] selectMember = new int[2];
-        int tempStat1 = 0;
-        int tempStat2 = 0;
+        int tempStat1 = addTeamStat(selectMember, startTeam, len, statArr);
+        int tempStat2 = addTeamStat(selectMember, linkTeam, len, statArr);
 
-        System.out.println("******");
-        tempStat1 = addTeamStat(selectMember, startTeam, len, statArr);
-        tempStat2 = addTeamStat(selectMember, linkTeam, len, statArr);
-
-        System.out.println(tempStat1 + " - " +tempStat2 + " = " + Math.abs(tempStat1 - tempStat2));
-        System.out.println();
-        System.out.println("******");
+        //System.out.println(tempStat1 + " - " +tempStat2 + " = " + Math.abs(tempStat1 - tempStat2));
+        //System.out.println();
+        //System.out.println("******");
         return Math.abs(tempStat1 - tempStat2);
     }
 
@@ -72,13 +68,13 @@ public class Solution {
                 int idx = 0;
                 for (int i = 0; i < len/2; ++i) {
                     if (((1 << i) & j) > 0) {
-                        System.out.print(team[i]+ " ");
+                        //System.out.print(team[i]+ " ");
                         selectMember[idx++] = team[i];
                     }
                 }
                 tempStat = tempStat + statArr[selectMember[0]][selectMember[1]] + statArr[selectMember[1]][selectMember[0]];
-                System.out.println();
-                System.out.println(statArr[selectMember[0]][selectMember[1]] + " + " + statArr[selectMember[1]][selectMember[0]] + " = "  + (statArr[selectMember[0]][selectMember[1]] + statArr[selectMember[1]][selectMember[0]]));
+                //System.out.println();
+                //System.out.println(statArr[selectMember[0]][selectMember[1]] + " + " + statArr[selectMember[1]][selectMember[0]] + " = "  + (statArr[selectMember[0]][selectMember[1]] + statArr[selectMember[1]][selectMember[0]]));
             }
         }
 
