@@ -22,14 +22,14 @@ public class Solution {
                 int idx = 0;
                 for (int i = 0; i < N; ++i) {
                     if (((1 << i) & j) > 0) {
-                        //System.out.print(i+ " ");
+                        System.out.print(i+ " ");
                         member[i] = true;
                     }
                 }
                 int gap = addStat(member, statArr, sumMap);
                 if(answer > gap)
                     answer = gap;
-                //System.out.println(gap);
+                System.out.println(gap);
             }
         }
 
@@ -50,48 +50,39 @@ public class Solution {
                 linkTeam[linkIdx++] = i;
         }
 
-        int[] selectMeber = new int[2];
+        int[] selectMember = new int[2];
         int tempStat1 = 0;
         int tempStat2 = 0;
 
-        //System.out.println("******");
-        for (int j = 0; (1 << len/2) > j; ++j) {
-            if (Integer.bitCount(j) == 2) {
-                int idx = 0;
-                for (int i = 0; i < len/2; ++i) {
-                    if (((1 << i) & j) > 0) {
-                        //System.out.print(startTeam[i]+ " ");
-                        selectMeber[idx++] = startTeam[i];
-                    }
-                }
-                tempStat1 = tempStat1 + statArr[selectMeber[0]][selectMeber[1]] + statArr[selectMeber[1]][selectMeber[0]];
-                //System.out.println();
-                //System.out.println(statArr[selectMeber[0]][selectMeber[1]] + " + " + statArr[selectMeber[1]][selectMeber[0]] + " = "  + (statArr[selectMeber[0]][selectMeber[1]] + statArr[selectMeber[1]][selectMeber[0]]));
-            }
-        }
+        System.out.println("******");
+        tempStat1 = addTeamStat(selectMember, startTeam, len, statArr);
+        tempStat2 = addTeamStat(selectMember, linkTeam, len, statArr);
 
-        for (int j = 0; (1 << len/2) > j; ++j) {
-            if (Integer.bitCount(j) == 2) {
-                int idx = 0;
-                for (int i = 0; i < len/2; ++i) {
-                    if (((1 << i) & j) > 0) {
-                        selectMeber[idx++] = linkTeam[i];
-                        //System.out.print(linkTeam[i]+ " ");
-                    }
-                }
-                //System.out.println();
-                tempStat2 = tempStat2 + statArr[selectMeber[0]][selectMeber[1]] + statArr[selectMeber[1]][selectMeber[0]];
-                //System.out.println(statArr[selectMeber[0]][selectMeber[1]] + " + " + statArr[selectMeber[1]][selectMeber[0]] + " = "  + (statArr[selectMeber[0]][selectMeber[1]] + statArr[selectMeber[1]][selectMeber[0]]));
-
-            }
-        }
-
-        //System.out.println(tempStat1 + " - " +tempStat2 + " = " + Math.abs(tempStat1 - tempStat2));
-        //sumMap.put(tempStat, sumMap.getOrDefault(tempStat, 0) + 1);
-        //System.out.println((tempStat) + " => " + sumMap.get(tempStat));
-        //System.out.println();
-        //System.out.println("******");
+        System.out.println(tempStat1 + " - " +tempStat2 + " = " + Math.abs(tempStat1 - tempStat2));
+        System.out.println();
+        System.out.println("******");
         return Math.abs(tempStat1 - tempStat2);
+    }
+
+    public static int addTeamStat(int[] selectMember, int[] team, int len, int[][] statArr){
+        int tempStat = 0;
+
+        for (int j = 0; (1 << len/2) > j; ++j) {
+            if (Integer.bitCount(j) == 2) {
+                int idx = 0;
+                for (int i = 0; i < len/2; ++i) {
+                    if (((1 << i) & j) > 0) {
+                        System.out.print(team[i]+ " ");
+                        selectMember[idx++] = team[i];
+                    }
+                }
+                tempStat = tempStat + statArr[selectMember[0]][selectMember[1]] + statArr[selectMember[1]][selectMember[0]];
+                System.out.println();
+                System.out.println(statArr[selectMember[0]][selectMember[1]] + " + " + statArr[selectMember[1]][selectMember[0]] + " = "  + (statArr[selectMember[0]][selectMember[1]] + statArr[selectMember[1]][selectMember[0]]));
+            }
+        }
+
+        return tempStat;
     }
 
 }
