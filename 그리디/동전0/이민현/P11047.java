@@ -2,34 +2,34 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        int n;
-        int[] countList;
+        int n, k;
+        int currentIdx = 0;
+        int coinCount = 0;
+        Integer[] coins;
 
         Scanner input = new Scanner(System.in);
 
         n = input.nextInt();
-        countList = new int[Math.max(n + 1, 4)];
+        coins = new Integer[n];
 
-        countList[1] = 0;
-        countList[2] = 1;
-        countList[3] = 1;
+        k = input.nextInt();
 
-        for(int i = 4; i <= n; i++) {
-            int minCount = Integer.MAX_VALUE;
+        for(int i = 0; i < n; i++) {
+            coins[i] = input.nextInt();
+        }
+        Arrays.sort(coins, Collections.reverseOrder());
 
-            if(i % 3 == 0) {
-                minCount = Math.min(minCount, (countList[i / 3]));
+        while (k > 0) {
+            for(int i = currentIdx; i < n; i++) {
+                if(coins[i] <= k) {
+                    k -= coins[i];
+                    currentIdx = i;
+                    coinCount++;
+                    break;
+                }
             }
-
-            if(i % 2 == 0) {
-                minCount = Math.min(minCount, (countList[i / 2]));
-            }
-
-            minCount = Math.min(minCount, countList[i - 1]);
-
-            countList[i] = minCount + 1;
         }
 
-        System.out.println(countList[n]);
+        System.out.println(coinCount);
     }
 }
