@@ -51,6 +51,10 @@
 - 5주차
  > 트리 / 해시 / DFS:BFS (개념 설명 & 알고리즘 코드 리뷰 & 면접 질문 소개 및 발표 )<br>
  [백준 - 상근이의 여행](https://www.acmicpc.net/problem/9372) 풀이 진행
-- 6주차 
- > ..
+- 6주차  ~  END
+ > [실전풀이 및 숙제](https://github.com/bloodfinger8/AlgorithmStudy/wiki/%EB%AC%B8%EC%A0%9C%EB%A6%AC%EC%8A%A4%ED%8A%B8)
+ 
+ 
+ ## 진행기간 - 종료 🥳
+ - 7월 ~ 12월 (5개월)
     
